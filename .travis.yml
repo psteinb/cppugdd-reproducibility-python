@@ -16,10 +16,9 @@ matrix:
       env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
       
 install:
-- travis_retry wget -O get-pip.py https://bootstrap.pypa.io/get-pip.py
 - |
     if [[ "${TRAVIS_OS_NAME}" == "windows" ]]; then
-       python3 -m pip install -U pip   
+       python -m pip install -U pip   
     else
        pip3 install --upgrade pip 
     fi   
