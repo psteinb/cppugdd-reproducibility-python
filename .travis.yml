@@ -16,7 +16,13 @@ matrix:
       env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
       
 install:
-- pip3 install --user --upgrade pip  # all three OSes agree about 'pip3'
+- travis_retry wget -O get-pip.py https://bootstrap.pypa.io/get-pip.py
+- |
+    if [[ "${TRAVIS_OS_NAME}" == "windows" ]]; then
+       python3 -m pip install -U pip   
+    elif
+       pip3 install --upgrade pip 
+    fi   
 - pip3 install numpy pytest
 
 # 'python' points to Python 2.7 on macOS but points to Python 3.7 on Linux and Windows
