@@ -10,7 +10,7 @@ matrix:
     - name: "PyPy 3.5 on Xenial Linux"
       python: pypy3.5       
       dist: xenial          
-      env: PYAPP=pypy3.5
+      env: PYAPP=python
 
     - name: "Python 3.7.2 on macOS"
       os: osx
