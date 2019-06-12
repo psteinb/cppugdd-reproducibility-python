@@ -37,10 +37,10 @@ matrix:
         #http://doc.pypy.org/en/latest/faq.html#should-i-install-numpy-or-numpypy
         - curl -o get-pip.py https://bootstrap.pypa.io/get-pip.py
         - pypy3 get-pip.py
-        - pypy3 -m pip install numpy.git || choco install numpy
+        - pypy3 -m pip install numpy
 
       env:
-        - PATH=/c/ProgramData/chocolatey/lib/pypy3/tools/pypy3.6-v7.1.0-win32:$PATH
+        - PATH=/c/ProgramData/chocolatey/lib/pypy3/tools/pypy3.6-v7.1.0-win32/bin:$PATH
         - PYAPP=pypy3
       
 install:
