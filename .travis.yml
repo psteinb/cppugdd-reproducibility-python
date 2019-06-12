@@ -23,7 +23,12 @@ matrix:
       language: generic
       python: "pypy3"
       env: PYAPP=pypy3 TRAVIS_PYTHON_VERSION="pypy3"
-      
+      before_install:
+        - curl -o get-pip.py https://bootstrap.pypa.io/get-pip.py
+        - which pypy || which pypy3
+        - pypy3 get-pip.py
+        - pypy3 -m pip install numpy
+
     - name: "Python 3.7.3 on Windows"
       os: windows           # Windows 10.0.17134 N/A Build 17134
       language: shell       # 'language: python' is an error on Travis CI Windows
@@ -52,13 +57,13 @@ matrix:
       
 install:
 - |
-    if [[ "${TRAVIS_OS_NAME}" == "windows" ]]; then
+    if [[ "${TRAVIS_OS_NAME}" == "windows" || $PYAPP == pypy*]]; then
        $PYAPP -m pip install -U pip   
     else
        pip3 install --upgrade pip 
     fi   
 - |
-    if [[ "${TRAVIS_OS_NAME}" == "windows" ]]; then
+    if [[ "${TRAVIS_OS_NAME}" == "windows" || $PYAPP == pypy* ]]; then
        $PYAPP -m pip install pytest
        $PYAPP -m pip install numpy
     else

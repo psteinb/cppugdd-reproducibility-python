@@ -13,3 +13,4 @@ def test_generate():
 
 if __name__ == '__main__':
     test_generate()
+    print("All tests passed.")
