@@ -31,12 +31,13 @@ matrix:
       language: shell       # 'language: python' is an error on Travis CI Windows
       before_install:
         - choco install pypy3
-        - ls -l /c/ProgramData/chocolatey/lib/pypy3
-        - ls -l /c/ProgramData/chocolatey/lib/pypy3/tools
-        - ls -l /c/ProgramData/chocolatey/lib/pypy3/tools/pypy3.6-v7.1.0-win32
+        - ls -l /c/ProgramData/chocolatey/lib/pypy3/tools/pypy3.6-v7.1.0-win32/libs
+        - ls -l /c/ProgramData/chocolatey/lib/pypy3/tools/pypy3.6-v7.1.0-win32/site-packages
+        #http://pypy.org/download.html#installing-numpy
+        #http://doc.pypy.org/en/latest/faq.html#should-i-install-numpy-or-numpypy
         - curl -o get-pip.py https://bootstrap.pypa.io/get-pip.py
         - pypy3 get-pip.py
-        - pypy3 -m pip install git+https://bitbucket.org/pypy/numpy.git
+        - pypy3 -m pip install numpy.git || choco install numpy
 
       env:
         - PATH=/c/ProgramData/chocolatey/lib/pypy3/tools/pypy3.6-v7.1.0-win32:$PATH
