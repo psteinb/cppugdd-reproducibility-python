@@ -30,11 +30,11 @@ matrix:
       os: windows           
       language: shell       # 'language: python' is an error on Travis CI Windows
       before_install:
-        - choco install python.pypy
-        - ls /c/
+        - choco install pypy3
+        - ls /c/ProgramData/chocolatey/lib/
       env:
-        - PATH=/c/Python37:/c/Python37/Scripts:$PATH
-        - PYAPP=python
+        - PATH=/c/ProgramData/chocolatey/lib/python.pypy/tools:$PATH
+        - PYAPP=pypy
       
 install:
 - |
