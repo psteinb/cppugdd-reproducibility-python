@@ -56,19 +56,9 @@ matrix:
         - PYAPP=pypy3
       
 install:
-- |
-    if [[ "${TRAVIS_OS_NAME}" == "windows" -o $PYAPP == pypy*]]; then
-       $PYAPP -m pip install -U pip   
-    else
-       pip3 install --upgrade pip 
-    fi   
-- |
-    if [[ "${TRAVIS_OS_NAME}" == "windows" -o $PYAPP == pypy* ]]; then
-       $PYAPP -m pip install pytest
-       $PYAPP -m pip install numpy
-    else
-       pip3 install numpy pytest
-    fi   
+- $PYAPP -m pip install -U pip   
+- $PYAPP -m pip install pytest
+- $PYAPP -m pip install numpy
 
 script:
 - $PYAPP -m pytest || $PYAPP fallback_numpy_normal.py
