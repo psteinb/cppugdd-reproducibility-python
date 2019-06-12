@@ -1,5 +1,5 @@
 import numpy as np
-import pytest
+import math
 
 def test_generate():
 
@@ -9,4 +9,7 @@ def test_generate():
            4.53172609, 8.15842563, 6.53486946, 4.06105123, 6.08512009]
 
     for i in range(len(res)):
-        assert res[i] == pytest.approx(exp[i])
+        assert math.fabs(res[i] == exp[i]) < 1e-7
+
+if __name__ == '__main__':
+    test_generate()
