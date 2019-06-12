@@ -25,6 +25,16 @@ matrix:
       env:
         - PATH=/c/Python37:/c/Python37/Scripts:$PATH
         - PYAPP=python
+
+    - name: "PyPy 3.7.x (PyPy 7.1) on Windows"
+      os: windows           
+      language: shell       # 'language: python' is an error on Travis CI Windows
+      before_install:
+        - choco install python.pypy
+        - ls /c/
+      env:
+        - PATH=/c/Python37:/c/Python37/Scripts:$PATH
+        - PYAPP=python
       
 install:
 - |
