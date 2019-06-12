@@ -32,7 +32,7 @@ matrix:
       before_install:
         - choco install pypy3
         - ls -l /c/ProgramData/chocolatey/lib/pypy3
-        - ls -l /c/ProgramData/chocolatey/lib/tools
+        - ls -l /c/ProgramData/chocolatey/lib/pypy3/tools
 
       env:
         - PATH=/c/ProgramData/chocolatey/lib/pypy3/tools:$PATH
